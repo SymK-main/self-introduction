@@ -2,72 +2,126 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>나의 자기소개 페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Introduction PAGE</title>
   <style>
     body {
-      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
-      background-color: #f0f4f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 85vh;
+      font-family: 'Malgun Gothic', sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #f9f9f9;
       margin: 0;
+      padding: 30px 15px;
     }
-    .profile-card {
-      background: #ffffff;
-      max-width: 480px;
-      width: 100%;
-      padding: 36px;
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-    .badge {
-      display: inline-block;
-      background: #e8f0fe;
-      color: #1a73e8;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 12px;
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      padding: 30px;
     }
     h1 {
-      color: #202124;
-      font-size: 26px;
-      margin: 0 0 8px 0;
+      font-size: 24px;
+      border-bottom: 2px solid #333333;
+      padding-bottom: 10px;
+      margin-top: 0;
     }
-    .subtitle {
-      color: #5f6368;
-      margin-bottom: 24px;
-      line-height: 1.5;
+    h2 {
+      font-size: 18px;
+      color: #1a56db;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      border-left: 4px solid #1a56db;
+      padding-left: 8px;
     }
-    .info-box {
-      background: #f8f9fa;
-      padding: 16px 20px;
-      border-radius: 12px;
-      line-height: 1.9;
-      color: #3c4043;
+    p {
+      margin: 8px 0;
     }
     ul {
-      margin: 8px 0 0 0;
-      padding-left: 20px;
+      margin: 8px 0;
+      padding-left: 22px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #cccccc;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 28%;
+    }
+    .footer {
+      margin-top: 30px;
+      padding-top: 12px;
+      border-top: 1px solid #eeeeee;
+      font-size: 13px;
+      color: #666666;
     }
   </style>
 </head>
 <body>
-<div class="profile-card">
-  <span class="badge">New Developer</span>
-  <h1>안녕하세요, 홍길동입니다! 👋</h1>
-  <p class="subtitle">꾸준히 배우고 기록하며 동료들과 함께 성장하는 개발자가 되고 싶습니다.</p>
+<div class="container">
+  <h1>안녕하세요! 신입 개발자 김유민입니다.</h1>
+  <p>
+    전자공학(하드웨어·임베디드)과 인공지능융합학(AI·데이터 분석)을 함께 공부하며,
+    배운 기술로 실제 문제를 해결하는 엔지니어가 되고 싶습니다!.
+  </p>
 
-  <div class="info-box">
-    <strong>📌 나를 소개합니다</strong>
-    <ul>
-      <li><strong>관심 분야:</strong> 웹 서비스 개발, 백엔드</li>
-      <li><strong>개발 환경:</strong> IntelliJ IDEA, Git, GitHub</li>
-      <li><strong>취미/특기:</strong> 음악 감상, 새로운 IT 기술 찾아보기</li>
-      <li><strong>나의 각오:</strong> 기본기를 탄탄히 다져 팀에 보탬이 되겠습니다!</li>
-    </ul>
+  <h2>1. 기본 소개</h2>
+  <ul>
+    <li><strong>전공:</strong> 전자공학 전공 / 인공지능융합학 복수전공</li>
+    <li><strong>관심 분야:</strong> AI 서비스(NLP, Vision), 데이터 분석, 임베디드 시스템, 백엔드 개발, 프론트엔드 개발</li>
+  </ul>
+
+  <h2>2. 사용 기술 및 도구</h2>
+  <table>
+    <tr>
+      <th>프로그래밍 언어</th>
+      <td>Python, Java, C, C++, C#, Verilog</td>
+    </tr>
+    <tr>
+      <th>AI &amp; 데이터 분석</th>
+      <td>NLP, RAG, Vision Transformer(ViT), LightGBM, CatBoost, Pandas, Scikit-learn, Streamlit</td>
+    </tr>
+    <tr>
+      <th>임베디드 &amp; 하드웨어</th>
+      <td>STM32, ESP32, Raspberry Pi(Linux), Arduino, FPGA, MATLAB, PSpice</td>
+    </tr>
+    <tr>
+      <th>개발 환경 &amp; 협업 툴</th>
+      <td>IntelliJ IDEA, Git, GitHub, MS-SQL, draw.io, Fusion360</td>
+    </tr>
+  </table>
+
+  <h2>3. 주요 프로젝트 경험</h2>
+  <ul>
+    <li><strong>산재 피해자 권익 지원 AI 서비스 (산재로):</strong> Python, NLP, 코사인 유사도 기반 유사 판례 검색 시스템 구현</li>
+    <li><strong>고령자 맞춤형 스마트 오더 시스템 (손주):</strong> NFC 태그 및 AI 음성 어시스턴트 결합 서비스 기획 및 UML 설계</li>
+    <li><strong>AGV 탄화 결함 예측 AI 모델:</strong> 14개 센서 데이터 분석 및 LightGBM·SMOTE 적용 (예측 정확도 0.98 달성)</li>
+    <li><strong>알약 이미지 분류 시스템:</strong> Vision Transformer(ViT) 모델 학습 및 Streamlit 웹 분류 화면 제작</li>
+    <li><strong>라즈베리파이 스마트 노트북 충전·백업 독:</strong> 충전과 자동 백업을 동시에 수행하는 리눅스 기반 장치 및 3D 하우징 제작</li>
+    <li><strong>STM32 기반 버스 승차벨 키오스크:</strong> 임베디드 보드 연동 및 TouchGFX 터치 UI 구현</li>
+  </ul>
+
+  <h2>4. 기타 활동 및 자격 사항</h2>
+  <ul>
+    <li><strong>대외 활동:</strong> 국제 스포츠 대회 IT 시스템 현장 운영, 유럽 해외 대학 단기 파견, 학술 소학회(NLP·전자공학) 활동</li>
+    <li><strong>수상 내역:</strong> 포트폴리오 경진대회 최우수상, AI 융합캡스톤디자인 대회 우수상, Data 해커톤 우수상</li>
+    <li><strong>보유 자격:</strong> 데이터분석 준전문가(ADsP), 정보처리기사(필기 합격), DSAC 3급, GA4, IoT 사물인터넷 활용능력 2급</li>
+  </ul>
+
+  <div class="footer">
+    <p>Git과 GitHub, IntelliJ IDEA를 활용해 만든 첫 자기소개 페이지입니다.</p>
   </div>
 </div>
 </body>
