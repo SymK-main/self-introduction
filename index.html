@@ -5,131 +5,219 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Self-Introduction PAGE</title>
   <style>
+    /* CSS 변수로 통합 관리 설정  */
+    :root {
+      --color-primary: #1a56db;
+      --color-text: #222222;
+      --color-muted: #666666;
+      --color-bg: #f9f9f9;
+      --color-surface: #ffffff;
+      --color-th-bg: #f2f2f2;
+      --color-border: #dddddd;
+      --color-border-cell: #cccccc;
+      --color-border-strong: #333333;
+      --color-border-light: #eeeeee;
+
+      --spacing-xs: 8px;
+      --spacing-sm: 12px;
+      --spacing-md: 28px;
+      --spacing-lg: 30px;
+    }
+
+    /* 너비에 padding과 border를 포함해서 모바일 깨짐 방지 */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Malgun Gothic', sans-serif;
       line-height: 1.6;
-      color: #222;
-      background-color: #f9f9f9;
+      color: var(--color-text);
+      background-color: var(--color-bg);
       margin: 0;
-      padding: 30px 15px;
+      padding: var(--spacing-lg) 15px;
     }
+
+    /* clamp(), margin-inline 적용 */
     .container {
+      width: 100%;
       max-width: 720px;
-      margin: 0 auto;
-      background-color: #ffffff;
-      border: 1px solid #dddddd;
-      padding: 30px;
+      margin-inline: auto;
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: clamp(16px, 4vw, 30px);
     }
-    h1 {
+
+    .profile-header h1 {
       font-size: 24px;
-      border-bottom: 2px solid #333333;
+      border-bottom: 2px solid var(--color-border-strong);
       padding-bottom: 10px;
       margin-top: 0;
     }
+
+    section {
+      margin-top: var(--spacing-md);
+    }
+
     h2 {
       font-size: 18px;
-      color: #1a56db;
-      margin-top: 28px;
+      color: var(--color-primary);
+      margin-top: 0;
       margin-bottom: 10px;
-      border-left: 4px solid #1a56db;
-      padding-left: 8px;
+      border-inline-start: 4px solid var(--color-primary);
+      padding-inline-start: var(--spacing-xs);
     }
+
     p {
-      margin: 8px 0;
+      margin: var(--spacing-xs) 0;
     }
+
     ul {
-      margin: 8px 0;
+      margin: var(--spacing-xs) 0;
       padding-left: 22px;
     }
+
     li {
       margin-bottom: 6px;
+      overflow-wrap: anywhere;
     }
-    table {
+
+    a {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    /*  <dl>로 항목·값 관계 구성 및 overflow-wrap 적용 */
+    .skill-list {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
+      margin: 10px 0 0 0;
+      border: 1px solid var(--color-border-cell);
       font-size: 14px;
     }
-    th, td {
-      border: 1px solid #cccccc;
+
+    .skill-item {
+      display: grid;
+      grid-template-columns: 28% 1fr;
+      border-bottom: 1px solid var(--color-border-cell);
+    }
+
+    .skill-item:last-child {
+      border-bottom: none;
+    }
+
+    .skill-item dt {
+      background-color: var(--color-th-bg);
+      font-weight: bold;
       padding: 8px 10px;
-      text-align: left;
-      vertical-align: top;
+      border-right: 1px solid var(--color-border-cell);
     }
-    th {
-      background-color: #f2f2f2;
-      width: 28%;
+
+    .skill-item dd {
+      margin: 0;
+      padding: 8px 10px;
+      overflow-wrap: anywhere;
     }
-    .footer {
-      margin-top: 30px;
-      padding-top: 12px;
-      border-top: 1px solid #eeeeee;
+
+    .profile-footer {
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-sm);
+      border-top: 1px solid var(--color-border-light);
       font-size: 13px;
-      color: #666666;
+      color: var(--color-muted);
+    }
+
+    /* 가로 스크롤 방지 */
+    @media (max-width: 480px) {
+      .skill-item {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-item dt {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border-cell);
+      }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <h1>안녕하세요! 신입 개발자 김유민입니다.</h1>
-  <p>
-    전자공학과 인공지능융합을 함께 공부하며, 배운 기술로 실제 문제를 해결하는 엔지니어가 되고 싶습니다!.
-  </p>
+<main class="container">
+  <header class="profile-header">
+    <h1>안녕하세요! 신입 개발자 김유민입니다.</h1>
+    <p>
+      전자공학과 인공지능융합을 함께 공부하며, 배운 기술로 실제 문제를 해결하는 엔지니어가 되고 싶습니다!
+    </p>
+  </header>
 
-  <h2>김유민</h2>
-  <ul>
-    <li><strong>이름:</strong> 김유민 | Sarah YUMIN KIM</li>
-    <li><strong>생일:</strong> 2000.05.07</li>
-    <li><strong>취미:</strong> 콘솔 게임 플레이, 뜨개질</li>
-    <li><strong>연락처:</strong> sarahakron@naver.com</li>
-  </ul>
+  <section aria-labelledby="profile-title">
+    <h2 id="profile-title">김유민</h2>
+    <ul>
+      <li><strong>이름:</strong> 김유민 | Sarah YUMIN KIM</li>
+      <li><strong>생일:</strong> <time datetime="2000-05-07">2000.05.07</time></li>
+      <li><strong>취미:</strong> 콘솔 게임 플레이, 뜨개질</li>
+      <!-- 클릭 시 기본 이메일 프로그램이 실행되는 mailto: 링크 적용 -->
+      <li>
+        <strong>연락처:</strong>
+        <a href="mailto:sarahakron@naver.com">sarahakron@naver.com (이메일 보내기)</a>
+      </li>
+    </ul>
+  </section>
 
-  <h2>기본 소개</h2>
-  <ul>
-    <li><strong>전공:</strong> 아주대학교 전자공학 전공 / 인공지능융합학 복수전공</li>
-    <li><strong>관심 분야:</strong> AI 서비스(NLP, Vision), 데이터 분석, 임베디드 시스템, 백엔드 개발, 프론트엔드 개발</li>
-  </ul>
+  <section aria-labelledby="about-title">
+    <h2 id="about-title">기본 소개</h2>
+    <ul>
+      <li><strong>전공:</strong> 아주대학교 전자공학 전공 / 인공지능융합학 복수전공</li>
+      <li><strong>관심 분야:</strong> AI 서비스(NLP, Vision), 데이터 분석, 임베디드 시스템, 백엔드 개발, 프론트엔드 개발</li>
+    </ul>
+  </section>
 
-  <h2>사용 기술 및 도구</h2>
-  <table>
-    <tr>
-      <th>프로그래밍 언어</th>
-      <td>Python, Java, C, C++, C#, Verilog</td>
-    </tr>
-    <tr>
-      <th>AI &amp; 데이터 분석</th>
-      <td>NLP, RAG, Vision Transformer(ViT), LightGBM, CatBoost, Pandas, Scikit-learn, Streamlit</td>
-    </tr>
-    <tr>
-      <th>임베디드 &amp; 하드웨어</th>
-      <td>STM32, ESP32, Raspberry Pi(Linux), Arduino, FPGA, MATLAB, PSpice</td>
-    </tr>
-    <tr>
-      <th>개발 환경 &amp; 협업 툴</th>
-      <td>IntelliJ IDEA, Git, GitHub, MS-SQL, draw.io, Fusion360</td>
-    </tr>
-  </table>
+  <section aria-labelledby="skills-title">
+    <h2 id="skills-title">사용 기술 및 도구</h2>
+    <dl class="skill-list">
+      <div class="skill-item">
+        <dt>프로그래밍 언어</dt>
+        <dd>Python, Java, C, C++, C#, Verilog</dd>
+      </div>
+      <div class="skill-item">
+        <dt>AI &amp; 데이터 분석</dt>
+        <dd>NLP, RAG, Vision Transformer(ViT), LightGBM, CatBoost, Pandas, Scikit-learn, Streamlit</dd>
+      </div>
+      <div class="skill-item">
+        <dt>임베디드 &amp; 하드웨어</dt>
+        <dd>STM32, ESP32, Raspberry Pi(Linux), Arduino, FPGA, MATLAB, PSpice</dd>
+      </div>
+      <div class="skill-item">
+        <dt>개발 환경 &amp; 협업 툴</dt>
+        <dd>IntelliJ IDEA, Git, GitHub, MS-SQL, draw.io, Fusion360</dd>
+      </div>
+    </dl>
+  </section>
 
-  <h2>주요 프로젝트 경험</h2>
-  <ul>
-    <li><strong>피해자 권익 지원 AI 서비스:</strong> Python, NLP, 코사인 유사도 기반 유사 판례 검색 시스템 구현</li>
-    <li><strong>라즈베리파이 스마트 노트북 충전·백업 독:</strong> 충전과 자동 백업을 동시에 수행하는 리눅스 기반 장치 및 3D 하우징 제작</li>
-    <li><strong>STM32 기반 버스 승차벨 키오스크:</strong> 임베디드 보드 연동 및 TouchGFX 터치 UI 구현</li>
-    <li><strong>고령자 맞춤형 스마트 오더 시스템:</strong> NFC 태그 및 AI 음성 어시스턴트 결합 서비스 기획 및 UML 설계</li>
-    <li><strong>AGV 탄화 결함 예측 AI 모델:</strong> 14개 센서 데이터 분석 및 LightGBM·SMOTE 적용</li>
-    <li><strong>알약 이미지 분류 시스템:</strong> Vision Transformer(ViT) 모델 학습 및 Streamlit 웹 분류 화면 제작</li>
-  </ul>
+  <section aria-labelledby="projects-title">
+    <h2 id="projects-title">주요 프로젝트 경험</h2>
+    <ul>
+      <li><strong>피해자 권익 지원 AI 서비스:</strong> Python, NLP, 코사인 유사도 기반 유사 판례 검색 시스템 구현</li>
+      <li><strong>라즈베리파이 스마트 노트북 충전·백업 독:</strong> 충전과 자동 백업을 동시에 수행하는 리눅스 기반 장치 및 3D 하우징 제작</li>
+      <li><strong>STM32 기반 버스 승차벨 키오스크:</strong> 임베디드 보드 연동 및 TouchGFX 터치 UI 구현</li>
+      <li><strong>고령자 맞춤형 스마트 오더 시스템:</strong> NFC 태그 및 AI 음성 어시스턴트 결합 서비스 기획 및 UML 설계</li>
+      <li><strong>AGV 탄화 결함 예측 AI 모델:</strong> 14개 센서 데이터 분석 및 LightGBM·SMOTE 적용</li>
+      <li><strong>알약 이미지 분류 시스템:</strong> Vision Transformer(ViT) 모델 학습 및 Streamlit 웹 분류 화면 제작</li>
+    </ul>
+  </section>
 
-  <h2>기타 활동 및 자격 사항</h2>
-  <ul>
-    <li><strong>대외 활동:</strong> 국제 스포츠 대회 IT 시스템 현장 운영, 유럽 해외 대학 단기 파견, 학술 소학회(NLP·전자공학) 활동</li>
-    <li><strong>수상 내역:</strong> 포트폴리오 경진대회 최우수상, AI 융합캡스톤디자인 대회 우수상, Data 해커톤 우수상</li>
-    <li><strong>보유 자격:</strong> 데이터분석 준전문가(ADsP), 정보처리기사(필기 합격), DSAC 3급, GA4, IoT 사물인터넷 활용능력 2급</li>
-  </ul>
+  <section aria-labelledby="activities-title">
+    <h2 id="activities-title">기타 활동 및 자격 사항</h2>
+    <ul>
+      <li><strong>대외 활동:</strong> 국제 스포츠 대회 IT 시스템 현장 운영, 유럽 해외 대학 단기 파견, 학술 소학회(NLP·전자공학) 활동</li>
+      <li><strong>수상 내역:</strong> 포트폴리오 경진대회 최우수상, AI 융합캡스톤디자인 대회 우수상, Data 해커톤 우수상</li>
+      <li><strong>보유 자격:</strong> 데이터분석 준전문가(ADsP), 정보처리기사(필기 합격), DSAC 3급, GA4, IoT 사물인터넷 활용능력 2급</li>
+    </ul>
+  </section>
 
-  <div class="footer">
+  <footer class="profile-footer">
     <p>첫 자기 소개 페이지 입니다.</p>
-  </div>
-</div>
+  </footer>
+</main>
 </body>
 </html>
